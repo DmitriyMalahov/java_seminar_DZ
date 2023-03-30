@@ -13,7 +13,17 @@ public class Seminar_1_Task_1 {
         System.out.print("Введите число: ");
         Scanner sc = new Scanner(System.in);
         int number = sc.nextInt();
-        
+        int sum = 0;
+        int fib = 1;
+        for (int i = 0; i <= number; i++) {
+            sum += i;
+        }
+        while (number > 0){
+            fib *= number;
+            number -= 1;
+        }
+        System.out.println("Треугольное число равно: " + sum);
+        System.out.println("n! равно: " + fib);
         sc.close();
     }
 }
