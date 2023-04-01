@@ -1,13 +1,10 @@
-// Семинар 1.
-// Задача № 3.
-// Реализовать простой калькулятор (+ - / *)
-// Ввод числа ->
-// Ввод знака ->
-// Ввод числа ->
+package Seminar_2;
 
 import java.util.Scanner;
+import java.io.File;
+import java.io.FileWriter;
 
-public class Seminar_1_Task_3 {
+public class Seminar_2_Task_3 {
     public static void main(String[] args) {
         System.out.print("Введите число 1: ");
         Scanner sc = new Scanner(System.in);
@@ -17,7 +14,26 @@ public class Seminar_1_Task_3 {
         char s = sign.charAt(0);
         System.out.print("Введите число 2: ");
         double number2 = sc.nextDouble();
+        System.out.printf("Ответ: " + "%.2f", (Calculator(s, number1, number2)));
+        String log_file = "log_Calculator.txt";
+        File file = new File(log_file);
 
+        try {
+            FileWriter writer = new FileWriter(file, true);
+            for (int i = 0; i < 1; i++) {
+                writer.write(number1 + "" + sign + number2 + "=" + (Calculator(s, number1, number2)));
+                writer.write("\n");
+            }
+            writer.close();
+            System.out.println("\n");
+            System.out.println("Получилось!");
+        } catch (Exception e) {
+            System.out.println("Что то не так!");
+        }
+        sc.close();
+    }
+
+    static double Calculator(char s, double number1, double number2) {
         double result;
         switch (s) {
             case '+':
@@ -36,7 +52,7 @@ public class Seminar_1_Task_3 {
                 result = 0;
             }
         }
-        System.out.println(result);
-        sc.close();
+        return result;
     }
+
 }

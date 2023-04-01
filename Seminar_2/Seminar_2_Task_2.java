@@ -40,7 +40,7 @@ public class Seminar_2_Task_2 {
         }
     }
 
-    public static StringBuilder CreationNewString(String line) {
+    static StringBuilder CreationNewString(String line) {
         String line1 = line.replaceAll("\"", "");
         String line2 = line1.replace("[", "");
         String line3 = line2.replace("]", "");
