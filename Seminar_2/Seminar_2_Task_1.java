@@ -12,22 +12,21 @@ public class Seminar_2_Task_1 {
     // результат после каждой итерации запишите в лог-файл.
 
     public static void main(String[] args) {
-        int[] arr = new int[] { 124, 22, 24, 55, 2, 78 };
-        String text = Arrays.toString(bubbleSort(arr));
-        System.out.println(text);
+        int[] arr = new int[] { 1, 2232, 24, 55, 2, 78 };
+        System.out.println(Arrays.toString(bubbleSort(arr)));
         String log_file = "log.txt";
         File file = new File(log_file);
 
         try {
             FileWriter writer = new FileWriter(file, true);
             for (int i = 0; i < 1; i++) {
-                writer.write(text);
+                writer.write(Arrays.toString(bubbleSort(arr)));
                 writer.write("\n");
             }
             writer.close();
-            System.out.println("It turned out to do!");
+            System.out.println("Получилось!");
         } catch (Exception e) {
-            System.out.println("Something went wrong!");
+            System.out.println("Что то не так!");
         }
 
     }
